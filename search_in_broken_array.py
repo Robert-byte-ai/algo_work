@@ -18,9 +18,7 @@ def broken_search(nums, target) -> int:
                 or nums[left] <= target < mid_value
                 or target < mid_value < nums[left]):
             return search(left, mid)
-        else:
-            return search(mid + 1, right)
-
+        return search(mid + 1, right)
     return search(0, len(nums))
 
 

@@ -49,8 +49,21 @@ def quicksort(array):
 
 
 if __name__ == '__main__':
-    print(*[participant[2] for participant in
-            quicksort([(lambda login, task_count, fine: (-int(task_count),
-                                                         int(fine),
-                                                         login))(*input().split(' '))
-                       for _ in range(int(input()))])], sep='\n')
+    print(
+        *[
+            name for _, _, name in quicksort(
+                [
+                    (
+                        lambda login, task_count, fine: (
+                            -int(task_count),
+                            int(fine),
+                            login
+                        )
+                    )
+                    (*input().split(' '))
+                    for _ in range(int(input()))
+                ]
+            )
+        ],
+        sep='\n'
+    )
